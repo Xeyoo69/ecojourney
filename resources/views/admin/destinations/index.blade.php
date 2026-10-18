@@ -1,66 +1,136 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('title', 'Manage Destinations — Admin')
+@section('title', 'Destinations — EcoJourney Admin')
 
 @section('content')
-<div class="container-eco py-10">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-            <a href="{{ route('admin.dashboard') }}" class="text-xs font-bold text-forest-600 hover:underline">← Back to Dashboard</a>
-            <h1 class="mt-2 font-display text-3xl font-extrabold text-gray-900">Destinations</h1>
-            <p class="mt-1 text-sm text-gray-500">Only admins can create, edit, or delete destinations.</p>
-        </div>
-        <a href="{{ route('admin.destinations.create') }}" class="eco-btn eco-btn-primary">+ New Destination</a>
+<div class="admin-page-head">
+    <div>
+        <a href="{{ route('admin.dashboard') }}" class="admin-back">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10.5 19.5L3 12l7.5-7.5M3 12h18" />
+            </svg>
+            Dashboard
+        </a>
+        <h1 class="admin-title">Destinations</h1>
+        <p class="admin-sub">Create, edit and remove the destinations that power the public site.</p>
     </div>
 
-    @if(session('success'))
-        <div class="mt-6 rounded-2xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800">{{ session('success') }}</div>
-    @endif
-
-    <div class="mt-8 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
-        <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-                <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500">
-                    <tr>
-                        <th class="px-5 py-3 text-left">Image</th>
-                        <th class="px-5 py-3 text-left">Name</th>
-                        <th class="px-5 py-3 text-left">Category</th>
-                        <th class="px-5 py-3 text-left">Region</th>
-                        <th class="px-5 py-3 text-left">Score</th>
-                        <th class="px-5 py-3 text-right">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100">
-                    @forelse($destinations as $d)
-                        <tr class="hover:bg-gray-50/60">
-                            <td class="px-5 py-4">
-                                <img src="{{ $d->image_url }}" alt="{{ $d->name }}" class="h-14 w-20 rounded-xl object-cover border border-gray-200">
-                            </td>
-                            <td class="px-5 py-4">
-                                <div class="font-bold text-gray-900">{{ $d->name }}</div>
-                                <div class="text-xs text-gray-500">{{ $d->slug }} · {{ $d->location }}</div>
-                            </td>
-                            <td class="px-5 py-4 text-gray-600">{{ $d->category->name ?? '-' }}</td>
-                            <td class="px-5 py-4 text-gray-600">{{ $d->region ?? '-' }}</td>
-                            <td class="px-5 py-4"><span class="rounded-full bg-forest-50 px-3 py-1 text-xs font-bold text-forest-700">{{ $d->sustainability_score }}</span></td>
-                            <td class="px-5 py-4">
-                                <div class="flex justify-end gap-2">
-                                    <a href="{{ route('admin.destinations.edit', $d) }}" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-xs font-bold hover:bg-gray-50">Edit</a>
-                                    <form action="{{ route('admin.destinations.destroy', $d) }}" method="POST" onsubmit="return confirm('Delete this destination?')">
-                                        @csrf @method('DELETE')
-                                        <button class="rounded-full bg-red-50 border border-red-200 px-4 py-1.5 text-xs font-bold text-red-700 hover:bg-red-100">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr><td colspan="6" class="px-5 py-10 text-center text-gray-500">No destinations yet.</td></tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+    <div class="admin-head-actions">
+        <a href="{{ route('admin.destinations.create') }}" class="admin-btn admin-btn-primary">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" />
+            </svg>
+            New destination
+        </a>
     </div>
-
-    <div class="mt-6">{{ $destinations->links() }}</div>
 </div>
+
+<div class="admin-toolbar">
+    <form action="{{ route('admin.destinations.index') }}" method="GET" role="search" class="admin-search">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+        </svg>
+        <label for="destination-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search destinations</label>
+        <input
+            id="destination-search"
+            class="admin-input"
+            type="search"
+            name="q"
+            value="{{ $q }}"
+            placeholder="Search name, location or region…"
+            autocomplete="off"
+        >
+        <button type="submit" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search</button>
+    </form>
+
+    <div class="flex flex-wrap items-center gap-3">
+        @if ($q !== '')
+            <a href="{{ route('admin.destinations.index') }}" class="chip">
+                Clear “{{ $q }}”
+                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </a>
+        @endif
+        <span class="badge badge-neutral">{{ number_format($destinations->total()) }} total</span>
+    </div>
+</div>
+
+<div class="admin-table-wrap">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th scope="col">Destination</th>
+                <th scope="col">Category</th>
+                <th scope="col">Region</th>
+                <th scope="col">Score</th>
+                <th scope="col" class="col-actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($destinations as $d)
+                @php
+                    $score = (int) $d->sustainability_score;
+                    $tone = $score >= 70 ? 'score-hi' : ($score >= 40 ? 'score-mid' : 'score-low');
+                @endphp
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <img class="admin-thumb" src="{{ $d->image_url }}" alt="" loading="lazy">
+                            <div class="min-w-0">
+                                <div class="admin-row-title">{{ $d->name }}</div>
+                                <div class="admin-row-sub">{{ $d->location }}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge badge-forest">{{ $d->category->name ?? 'Uncategorised' }}</span>
+                    </td>
+                    <td style="color: var(--muted)">{{ $d->region ?: '—' }}</td>
+                    <td>
+                        <span class="admin-score">
+                            <span class="admin-score-track"><span class="admin-score-fill {{ $tone }}" style="width: {{ $score }}%"></span></span>
+                            <strong style="font-size: 13px">{{ $score }}</strong>
+                        </span>
+                    </td>
+                    <td class="col-actions">
+                        <div class="flex justify-end gap-2">
+                            <a href="{{ url('/destinations/' . $d->slug) }}" class="chip" target="_blank" rel="noopener" title="Open on the public site">View</a>
+                            <a href="{{ route('admin.destinations.edit', $d) }}" class="chip">Edit</a>
+                            <form action="{{ route('admin.destinations.destroy', $d) }}" method="POST" data-confirm="Delete “{{ $d->name }}”? This cannot be undone.">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="chip chip-danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5">
+                        <div class="admin-empty">
+                            <div class="admin-empty-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+                                </svg>
+                            </div>
+
+                            @if ($q !== '')
+                                <p class="admin-empty-title">No matches for “{{ $q }}”</p>
+                                <p class="admin-empty-text">Try a different keyword, or clear the search to see every destination.</p>
+                                <a href="{{ route('admin.destinations.index') }}" class="admin-btn admin-btn-light admin-btn-sm mt-5">Clear search</a>
+                            @else
+                                <p class="admin-empty-title">No destinations yet</p>
+                                <p class="admin-empty-text">Add your first destination and it will appear across the site.</p>
+                                <a href="{{ route('admin.destinations.create') }}" class="admin-btn admin-btn-primary admin-btn-sm mt-5">Create destination</a>
+                            @endif
+                        </div>
+                    </td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
+
+@include('admin.partials.pagination', ['paginator' => $destinations])
 @endsection

@@ -13,11 +13,17 @@ class DestinationController extends Controller
 {
     private const IMAGE_RULES = ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:5120'];
 
-    public function index()
+    public function index(Request $request)
     {
-        $destinations = Destination::with('category')->latest()->paginate(12);
+        $q = trim((string) $request->query('q', ''));
 
-        return view('admin.destinations.index', compact('destinations'));
+        $destinations = Destination::with('category')
+            ->when($q !== '', fn ($query) => $query->whereAny(['name', 'slug', 'location', 'region'], "%{$q}%"))
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
+
+        return view('admin.destinations.index', compact('destinations', 'q'));
     }
 
     public function create()
