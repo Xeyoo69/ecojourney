@@ -56,7 +56,7 @@
                 </template>
             </div>
 
-            <button type="button" class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-forest-200 hover:bg-forest-50 hover:text-forest-700 dark:border-white/10 dark:bg-white/5 dark:text-gray-300 dark:hover:border-forest-400/40 dark:hover:bg-white/10 md:hidden" :aria-expanded="menuOpen" :aria-label="$t('Open menu')" aria-controls="mobile-menu" @click="menuOpen = !menuOpen">
+            <button type="button" class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-forest-200 hover:bg-forest-50 hover:text-forest-700 dark:border-white/10 dark:bg-white/5 dark:text-gray-300 dark:hover:border-forest-400/40 dark:hover:bg-white/10 lg:hidden" :aria-expanded="menuOpen" :aria-label="$t('Open menu')" aria-controls="mobile-menu" @click="menuOpen = !menuOpen">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path v-if="!menuOpen" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" /><path v-else stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" /></svg>
             </button>
         </nav>
@@ -67,7 +67,7 @@
         </div>
 
         <Transition name="menu">
-            <div v-show="menuOpen" id="mobile-menu" class="border-t border-forest-900/[0.06] bg-white/95 backdrop-blur-xl dark:border-white/[0.06] dark:bg-[#121d16]/95 md:hidden">
+            <div v-show="menuOpen" id="mobile-menu" class="border-t border-forest-900/[0.06] bg-white/95 backdrop-blur-xl dark:border-white/[0.06] dark:bg-[#121d16]/95 lg:hidden">
             <div class="container-eco flex flex-col gap-1 py-4">
                 <RouterLink v-for="item in [...navItems, { to: '/favorites', label: 'Favorites' }]" :key="item.to" :to="item.to" class="rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-forest-50 hover:text-forest-700 dark:text-gray-200 dark:hover:bg-white/5 dark:hover:text-forest-300" @click="menuOpen = false">{{ $t(item.label) }}</RouterLink>
                 <div class="mt-2 flex items-center justify-between rounded-xl bg-gray-50 p-3 dark:bg-white/5">
