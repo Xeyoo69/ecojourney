@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 48" role="img" aria-label="EcoJourney">
+  <rect width="40" height="40" x="0" y="4" rx="14" fill="#31583D"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(8 12)">
+    <path d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z"/>
+    <path d="M12 21V9"/>
+    <path d="M12 14c-2.2-1.4-3.7-3.1-4.5-5"/>
+    <path d="M12 12c1.8-1.2 3.3-2.7 4.2-4.5"/>
+  </g>
+  <text x="54" y="33" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="23" font-weight="800" letter-spacing="-0.6" fill="#223B2B">EcoJourney</text>
+</svg>

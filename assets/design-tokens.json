@@ -1,0 +1,52 @@
+{
+  "brand": "EcoJourney - Modern Eco",
+  "primitive": {
+    "color": {
+      "primary": {
+        "50": { "$value": "#F2F7F3", "$type": "color" },
+        "100": { "$value": "#E1EEE4", "$type": "color" },
+        "200": { "$value": "#C4DDC9", "$type": "color" },
+        "300": { "$value": "#9FC5A8", "$type": "color" },
+        "400": { "$value": "#70A47E", "$type": "color" },
+        "500": { "$value": "#4F8760", "$type": "color" },
+        "600": { "$value": "#3D6E4C", "$type": "color" },
+        "700": { "$value": "#31583D", "$type": "color" },
+        "800": { "$value": "#294733", "$type": "color" },
+        "900": { "$value": "#223B2B", "$type": "color" },
+        "950": { "$value": "#14241A", "$type": "color" }
+      },
+      "secondary": {
+        "50": { "$value": "#FCFAF5", "$type": "color" },
+        "100": { "$value": "#F5EFE2", "$type": "color" },
+        "200": { "$value": "#EADFC9", "$type": "color" },
+        "300": { "$value": "#DDC9A8", "$type": "color" }
+      },
+      "accent": {
+        "50": { "$value": "#FDF3E3", "$type": "color" },
+        "100": { "$value": "#F9E4C3", "$type": "color" },
+        "200": { "$value": "#F3C887", "$type": "color" },
+        "300": { "$value": "#EBA94F", "$type": "color" },
+        "400": { "$value": "#E28F22", "$type": "color" },
+        "500": { "$value": "#D97706", "$type": "color" },
+        "600": { "$value": "#B45F05", "$type": "color" },
+        "700": { "$value": "#8F4A07", "$type": "color" },
+        "800": { "$value": "#6E380A", "$type": "color" },
+        "900": { "$value": "#4E280C", "$type": "color" }
+      },
+      "neutral": {
+        "cream": { "$value": "#FBFAF7", "$type": "color" },
+        "surface": { "$value": "#FFFFFF", "$type": "color" },
+        "text": { "$value": "#17201B", "$type": "color" },
+        "muted": { "$value": "#56635B", "$type": "color" },
+        "border": { "$value": "#E7ECE8", "$type": "color" },
+        "border-strong": { "$value": "#D4DED6", "$type": "color" }
+      },
+      "semantic": {
+        "success": { "$value": "#10B981", "$type": "color" },
+        "warning": { "$value": "#D97706", "$type": "color" },
+        "error": { "$value": "#E11D48", "$type": "color" },
+        "info": { "$value": "#0EA5E9", "$type": "color" }
+      }
+    }
+  }
+}

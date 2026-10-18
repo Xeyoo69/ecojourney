@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Setting extends Model
+{
+    protected $fillable = ['key', 'value'];
+
+    public static function get(string $key): ?string
+    {
+        $setting = static::query()->where('key', $key)->first();
+
+        return $setting?->value;
+    }
+
+    public static function set(string $key, ?string $value): void
+    {
+        static::query()->updateOrCreate(['key' => $key], ['value' => $value]);
+    }
+
+    public static function forget(string $key): void
+    {
+        static::query()->where('key', $key)->delete();
+    }
+}

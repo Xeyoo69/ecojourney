@@ -1,0 +1,51 @@
+/* Design Tokens - Auto-generated */
+/* Do not edit directly - modify tokens.json instead */
+
+/* === PRIMITIVES === */
+:root {
+  --primitive-color-primary-50: #F2F7F3;
+  --primitive-color-primary-100: #E1EEE4;
+  --primitive-color-primary-200: #C4DDC9;
+  --primitive-color-primary-300: #9FC5A8;
+  --primitive-color-primary-400: #70A47E;
+  --primitive-color-primary-500: #4F8760;
+  --primitive-color-primary-600: #3D6E4C;
+  --primitive-color-primary-700: #31583D;
+  --primitive-color-primary-800: #294733;
+  --primitive-color-primary-900: #223B2B;
+  --primitive-color-primary-950: #14241A;
+  --primitive-color-secondary-50: #FCFAF5;
+  --primitive-color-secondary-100: #F5EFE2;
+  --primitive-color-secondary-200: #EADFC9;
+  --primitive-color-secondary-300: #DDC9A8;
+  --primitive-color-accent-50: #FDF3E3;
+  --primitive-color-accent-100: #F9E4C3;
+  --primitive-color-accent-200: #F3C887;
+  --primitive-color-accent-300: #EBA94F;
+  --primitive-color-accent-400: #E28F22;
+  --primitive-color-accent-500: #D97706;
+  --primitive-color-accent-600: #B45F05;
+  --primitive-color-accent-700: #8F4A07;
+  --primitive-color-accent-800: #6E380A;
+  --primitive-color-accent-900: #4E280C;
+  --primitive-color-neutral-cream: #FBFAF7;
+  --primitive-color-neutral-surface: #FFFFFF;
+  --primitive-color-neutral-text: #17201B;
+  --primitive-color-neutral-muted: #56635B;
+  --primitive-color-neutral-border: #E7ECE8;
+  --primitive-color-neutral-border-strong: #D4DED6;
+  --primitive-color-semantic-success: #10B981;
+  --primitive-color-semantic-warning: #D97706;
+  --primitive-color-semantic-error: #E11D48;
+  --primitive-color-semantic-info: #0EA5E9;
+}
+
+/* === SEMANTIC === */
+:root {
+
+}
+
+/* === COMPONENTS === */
+:root {
+
+}
