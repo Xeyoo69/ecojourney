@@ -56,7 +56,11 @@ export function extractPagination(payload, key = 'destinations') {
 }
 
 export function imageUrl(destination) {
-    return destination?.image_url || destination?.imageUrl || destination?.image || 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80';
+    let url = destination?.image_url || destination?.imageUrl || destination?.image || 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80';
+    if (url && url.includes('images.unsplash.com')) {
+        url = url.replace(/w=\d+/, 'w=600');
+    }
+    return url;
 }
 
 export function categoryName(destination) {

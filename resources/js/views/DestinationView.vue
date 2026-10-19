@@ -14,7 +14,7 @@
                     </nav>
                     <div class="relative overflow-hidden rounded-[32px] bg-forest-900 shadow-xl shadow-forest-900/10">
                         <div class="relative h-[390px] sm:h-[520px]">
-                            <img :src="imageUrl(destination)" :alt="destination.name" class="h-full w-full object-cover" @error="useFallback">
+                            <img :src="imageUrl(destination)" :alt="destination.name" class="h-full w-full object-cover" loading="lazy" decoding="async" @error="useFallback">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/5"></div>
                             <button type="button" class="absolute right-5 top-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-white/90 text-gray-500 shadow-lg backdrop-blur transition hover:bg-white hover:text-rose-500" :class="isFavorite(destination.slug) ? 'text-rose-500' : ''" :aria-label="isFavorite(destination.slug) ? $t('Remove favorite') : $t('Save destination')" :title="auth.isAuthenticated() ? (isFavorite(destination.slug) ? $t('Remove from favorites') : $t('Save to favorites')) : $t('Sign in to save favorites')" @click="toggle(destination.slug)">
                                 <svg class="h-5 w-5" :fill="isFavorite(destination.slug) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" /></svg>

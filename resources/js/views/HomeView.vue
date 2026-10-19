@@ -28,7 +28,7 @@
                 <div class="relative hidden lg:block">
                     <div class="relative mx-auto h-[560px] max-w-[500px]">
                         <div class="absolute right-0 top-5 h-[470px] w-[370px] overflow-hidden rounded-[40px] bg-forest-100 shadow-2xl shadow-forest-900/20 ring-1 ring-forest-900/5 dark:bg-forest-900 dark:ring-white/10">
-                            <img v-if="heroImage" :src="heroImage" :alt="$t('Nature destination')" class="ken-burns h-full w-full object-cover">
+                            <img v-if="heroImage" :src="heroImage" :alt="$t('Nature destination')" class="ken-burns h-full w-full object-cover" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-forest-900/40 to-transparent"></div>
                         </div>
                                             <div class="glass-card absolute left-0 top-24 rounded-[28px] p-5 animate-float-slow-delay">
