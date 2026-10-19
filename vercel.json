@@ -29,6 +29,8 @@
         "OPENAI_MODEL": "gemini-flash-latest",
         "OPENAI_TIMEOUT": "30",
         "OPENAI_MAX_TOKENS": "800",
-        "OPENAI_REASONING_EFFORT": "low"
+        "OPENAI_REASONING_EFFORT": "low",
+
+        "GOOGLE_REDIRECT_URI": "https://ecojourney.kohl.vercel.app/auth/google/callback"
     }
 }
