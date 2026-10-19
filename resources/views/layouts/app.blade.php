@@ -27,37 +27,7 @@
                 href="{{ url('/') }}"
                 class="group flex items-center gap-3"
             >
-                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-forest-700 text-white shadow-lg shadow-forest-700/15 transition duration-300 group-hover:scale-105 group-hover:shadow-xl">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z"
-                        />
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 21V9"
-                        />
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 14c-2.2-1.4-3.7-3.1-4.5-5"
-                        />
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 12c1.8-1.2 3.3-2.7 4.2-4.5"
-                        />
-                    </svg>
-                </div>
+                <img src="{{ asset('images/logo-ecojourney.png') }}" alt="EcoJourney" class="h-10 w-auto group-hover:scale-105 transition duration-300">
 
                 <div>
                     <div class="font-display text-lg font-extrabold tracking-tight text-forest-900">
@@ -305,12 +275,7 @@
                 {{-- BRAND --}}
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-forest-700 text-white shadow-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21V9" />
-                            </svg>
-                        </div>
+                        <img src="{{ asset('images/logo-ecojourney.png') }}" alt="EcoJourney" class="h-10 w-auto">
                         <span class="font-display text-xl font-extrabold tracking-tight text-forest-900">EcoJourney</span>
                     </div>
                     <p class="mt-5 max-w-md text-sm leading-7 text-gray-500">
