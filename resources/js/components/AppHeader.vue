@@ -3,12 +3,7 @@
         <nav class="container-eco flex h-[72px] items-center justify-between gap-5 sm:h-[76px]">
             <RouterLink to="/" class="group flex shrink-0 items-center gap-3" :aria-label="$t('EcoJourney home')">
                 <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-forest-700 text-white shadow-lg shadow-forest-700/15 transition group-hover:scale-105">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21V9" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14c-2.2-1.4-3.7-3.1-4.5-5" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 12c1.8-1.2 3.3-2.7 4.2-4.5" />
-                    </svg>
+                    <img src="/images/logo-ecojourney.png" alt="EcoJourney" class="h-5 w-auto">
                 </div>
                 <span class="hidden sm:block">
                     <span class="block font-display text-lg font-extrabold tracking-tight text-forest-900 dark:text-forest-100">EcoJourney</span>

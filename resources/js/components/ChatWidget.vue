@@ -11,10 +11,7 @@
             >
                 <header class="flex items-center gap-3 border-b border-gray-100 bg-forest-700 px-5 py-4 text-white dark:border-white/10 dark:bg-forest-800">
                     <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/15">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z" />
-                            <path d="M12 21V9" />
-                        </svg>
+                        <img src="/images/logo-ecojourney.png" alt="EcoJourney" class="h-5 w-auto">
                     </span>
                     <div class="min-w-0 flex-1">
                         <p class="truncate font-display text-sm font-extrabold tracking-tight">{{ $t('Eco assistant') }}</p>

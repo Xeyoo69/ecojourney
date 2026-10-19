@@ -14,12 +14,7 @@
                         <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/>
                         <path d="M19 16.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6Z"/>
                     </svg>
-                    <svg v-else class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 21c4.5-2.2 7-5.6 7-10.5C19 6 15.8 3 12 3S5 6 5 10.5C5 15.4 7.5 18.8 12 21Z"/>
-                        <path d="M12 21V9"/>
-                        <path d="M12 14c-2.2-1.4-3.7-3.1-4.5-5"/>
-                        <path d="M12 12c1.8-1.2 3.3-2.7 4.2-4.5"/>
-                    </svg>
+                    <img v-else src="/images/logo-ecojourney.png" alt="EcoJourney" class="h-6 w-auto">
                 </div>
 
                 <div class="min-w-0 flex-1">
