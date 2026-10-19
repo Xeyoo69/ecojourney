@@ -41,13 +41,8 @@ class Destination extends Model
             return asset('storage/' . $this->image);
         }
 
-        // fallback to SVG
-        $svgPath = public_path('images/destinations/' . ($this->slug ?? 'way-kambas') . '.svg');
-        if (file_exists($svgPath)) {
-            return asset('images/destinations/' . ($this->slug ?? 'way-kambas') . '.svg');
-        }
-
-        return asset('images/destinations/way-kambas.svg');
+        // fallback to logo
+        return asset('images/logo-ecojourney.png');
     }
 
     public function category(): BelongsTo
