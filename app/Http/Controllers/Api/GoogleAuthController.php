@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
@@ -98,17 +97,7 @@ class GoogleAuthController extends Controller
             return $existing;
         }
 
-        $user = new User([
-            'google_id' => $googleId,
-            'avatar' => $googleUser->getAvatar(),
-            'name' => $googleUser->getName() ?: $googleUser->getNickname() ?: Str::before($email, '@'),
-            'email' => $email,
-            'role' => 'user',
-        ]);
-        $user->email_verified_at = now();
-        $user->save();
-
-        return $user;
+        return 'Akun belum terdaftar. Silakan daftar terlebih dahulu sebelum masuk dengan Google.';
     }
 
     private function fillProfile(User $user, object $googleUser): void
